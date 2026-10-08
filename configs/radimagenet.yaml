@@ -1,0 +1,31 @@
+# RadImageNet ResNet-50 Cross-Plane Query Head Configuration
+model:
+  backbone: "resnet50"
+  token_dim: 2048
+  head_dim: 512
+  attention_heads: 8
+  dropout: 0.0
+  num_classes: 12
+
+views:
+  slots: ["SAG_FS", "COR_FS", "AX_FS", "SAG_N"]
+  slice_budget:
+    SAG: 8
+    COR: 8
+    AX: 8
+  total_tokens: 32
+  depth_band: [0.12, 0.88]
+
+training:
+  stage: 2
+  labels: "data/train_distilled_labels.csv"
+  folds: 1
+  epochs: 20
+  batch_size: 16
+  lr: 2.0e-4
+  weight_decay: 3.0e-3
+  loss_type: "focal"          # "focal" (gamma=2.0) or "bce"
+  focal_gamma: 2.0
+  patience: 6
+  cache_path: "cache/rad_features_cache.npz"
+  resnet_path: "checkpoints/ResNet50.pt"

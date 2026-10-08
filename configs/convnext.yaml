@@ -1,0 +1,33 @@
+# ConvNeXt-Nano 6-View Multi-Head Transformer Configuration
+model:
+  backbone: "convnext_nano.in12k_ft_in1k"
+  transformer_dim: 384
+  transformer_depth: 2
+  transformer_heads: 8
+  dropout: 0.2
+  num_classes: 12
+  use_imagenet_norm: true
+
+views:
+  slots: ["SAG_N", "SAG_FS", "COR_N", "COR_FS", "AX_N", "AX_FS"]
+  slice_budget:
+    SAG: 20
+    COR: 20
+    AX: 16
+  depth_band: [0.04, 0.96]
+
+training:
+  stage: 2
+  labels: "data/train_distilled_labels.csv"
+  folds: 1
+  epochs: 10
+  batch_size: 2
+  accum_steps: 4             # 2 * 4 = effective batch size 8
+  k_train: 10                # Dynamic depth jittering slices per slot
+  k_eval: 20                 # Full equidistant slices for validation
+  lr_backbone: 1.0e-4
+  lr_head: 5.0e-4
+  weight_decay: 0.02
+  ema_decay: 0.998
+  grad_clip: 1.0
+  warmup_epochs: 1

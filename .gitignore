@@ -1,0 +1,38 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyTorch checkpoints and large volume caches
+*.pt
+*.pth
+*.npz
+*.bin
+checkpoints/
+outputs/
+logs/
+*.log
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Environments & virtualenvs
+.env
+.venv
+env/
+venv/
+ENV/
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Large raw datasets (keep data/samples and reference CSVs)
+data/train_series/
+data/test_series/
+*.dcm.zip
+notebooks/
+data/
+scripts/
+PLAN.md

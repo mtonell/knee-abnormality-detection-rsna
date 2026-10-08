@@ -1,0 +1,16 @@
+# Core Deep Learning Framework
+torch>=2.0.0
+torchvision>=0.15.0
+timm>=0.9.2
+
+# Medical Imaging & Computer Vision
+pydicom>=2.4.0
+opencv-python>=4.8.0
+numpy>=1.23.0
+scipy>=1.10.0
+
+# Data Science & Evaluation
+pandas>=2.0.0
+scikit-learn>=1.2.0
+tqdm>=4.65.0
+pyyaml>=6.0

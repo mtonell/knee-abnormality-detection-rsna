@@ -227,11 +227,11 @@ Validation and competition scores across the individual models, 5-fold iteration
 
 | Model / Pipeline Configuration | Local OOF Macro-AUC | Gold 58 Macro-AUC | Kaggle Public LB | Kaggle Private LB |
 | :--- | :---: | :---: | :---: | :---: |
-| **5-Fold RadImageNet ResNet-50** | 0.843 | 0.861 | 0.890 | N/A |
-| **5-Fold ConvNeXt-Nano 6-View** | 0.901 | 0.906 | 0.926 | N/A |
-| **1-Fold RadImageNet ResNet-50** | N/A | 0.880 | 0.899 | N/A |
-| **1-Fold ConvNeXt-Nano 6-View** | N/A | 0.908 | 0.924 | N/A |
-| **Final Ensemble** | N/A | 0.911 | 0.927 | N/A |
+| **5-Fold RadImageNet ResNet-50** | 0.843 | 0.861 | 0.890 | 0.870 |
+| **5-Fold ConvNeXt-Nano 6-View** | 0.901 | 0.906 | 0.926 | 0.912 |
+| **1-Fold RadImageNet ResNet-50** | N/A | 0.880 | 0.899 | 0.874 |
+| **1-Fold ConvNeXt-Nano 6-View** | N/A | 0.908 | 0.924 | 0.905 |
+| **Final Ensemble** | N/A | 0.911 | 0.927 | 0.906 |
 
 
 ### 7.2 Optimal Distillation Label Weights
@@ -264,6 +264,7 @@ The Explainable AI (xAI) module provides transparent visual evidence for model p
 ## 8. Notes
 
 * Built for computational efficiency and modularity. While larger models would boost scores, this framework completes training and validation in hours with a minimal GPU footprint, while still achieving good results.
+* **Competition Result**: This architecture was blended with top public competition solutions, achieving a **Kaggle Bronze Medal**.
 
 
 ### Future Improvements
